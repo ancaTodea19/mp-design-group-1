@@ -1,0 +1,23 @@
+# Ignore everything 
+
+* 
+
+ 
+
+# Allow .java files 
+
+!*.java 
+
+ 
+
+# Allow other important files 
+
+!.gitignore 
+
+!README.md 
+
+ 
+
+# Allow directory traversal 
+
+!*/  
