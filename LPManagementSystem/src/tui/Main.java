@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-hej Lukas
-hej Mikkel
-hej Anca
-=======
+
 package tui;
 
 class Main {
@@ -54,4 +50,3 @@ class Main {
 	        System.out.println(" Tak for denne gang ");
 	    }
 }
->>>>>>> Stashed changes
