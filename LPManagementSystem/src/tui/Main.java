@@ -1,19 +1,20 @@
 
 package tui;
 
-import java.util.Scanner;
+import controller.PersonController;
 
 class Main {
 	
-	private static LoanMenu loanMenu;
-	
-
-	
+	private PersonController personController;
 	
 	public static void main (String[] args) {
 		
-		loanMenu = new LoanMenu();
+		Main mTui = new Main();
+		mTui.start();
 		
+	}
+	
+	public void start() {
 		 boolean exit=false;
 	        while (!exit) { //! means while exit not is true (that is: false)
 	            int choice = writeMainMenu();
@@ -28,7 +29,8 @@ class Main {
 	                System.out.println(" Denne er endnu ikke implementeret");
 	            }
 	            else if(choice == 3) {
-	                loanMenu.start(); 
+	                LoanMenu loanMenu = new LoanMenu();
+					loanMenu.start(); 
 	            }
 	            else if(choice == 4) {
 	                // TODO generate test data, this must not be part of final version
@@ -38,7 +40,6 @@ class Main {
 	                exit = true;
 	            }//end else
 	        }//end while
-		
 	}
 	
 	    private static int writeMainMenu(){
