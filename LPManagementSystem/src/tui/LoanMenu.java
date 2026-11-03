@@ -46,15 +46,14 @@ public class LoanMenu {
 		displayLoan(p);
 	}
 	
-	private void findLP() {
+	/*  skal lige fikses  private void findLP() { 
 		System.out.println();
 		System.out.println("Find den LP, som du gerne vil låne ud:");
 		String lp = LPController.findLP(lp);
 		int lpnr = LPController.findlp(lpnr);
-		
-	}
-	 
 	
+	}
+	*/
 	
 	
 	// Opret person
@@ -84,7 +83,7 @@ public class LoanMenu {
 			System.out.println("    <No member to display>");
 		}
 	}
-	
+	/* skal lige fikses
 	private void displayLP(LP l) {
 		System.out.println(LP, som du låner ud:);
 		if (l!=null) {
@@ -92,6 +91,7 @@ public class LoanMenu {
 			System.out.println("	Nummer: ");
 		}
 	}
+	*/
     
 	private void displayCreate(Person p) {
 		System.out.println();

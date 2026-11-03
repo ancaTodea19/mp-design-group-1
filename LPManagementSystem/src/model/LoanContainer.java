@@ -10,11 +10,16 @@ public class LoanContainer {
 		loans= new ArrayList<>();
 	}
 	
-	private static LoanContainer getInstance() {
+	public static LoanContainer getInstance() {
 		if (instance == null) {
 			instance =  new LoanContainer();
 		}
 		return instance;
+	}
+
+	public boolean addLoan(Loan p) {
+		
+		return false;
 	}
 	
 }
