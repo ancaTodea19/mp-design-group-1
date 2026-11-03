@@ -45,14 +45,14 @@ public class LoanMenu {
 		Person p = personController.findByEmail(email);
 		displayLoan(p);
 	}
-	
+	/*
 	private void findLP() {
 		System.out.println();
 		System.out.println("Find den LP, som du gerne vil låne ud:");
 		String lp = LPController.findLP(lp);
 		int lpnr = LPController.findlp(lpnr);
 		
-	}
+	} */
 	 
 	
 	
@@ -86,9 +86,9 @@ public class LoanMenu {
 	}
 	
 	private void displayLP(LP l) {
-		System.out.println(LP, som du låner ud:);
-		if (l!=null) {
-			System.out.println("	Name: " + l.getName());
+		System.out.println("LP, som du låner ud:");
+		if (l!=null) { 
+			System.out.println("	Title: " + l.getTitle());
 			System.out.println("	Nummer: ");
 		}
 	}

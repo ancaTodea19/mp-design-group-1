@@ -8,7 +8,6 @@ public class LP {
 	private String title;
 	private String artist; 
 	private int publicationDate;
-	
 	private HashMap<String, String> lpCopy;
 	
 	public LP(String barcode, String title, String artist, int publicationDate) {
@@ -19,6 +18,15 @@ public class LP {
 		this.publicationDate = publicationDate;
 		lpCopy = new HashMap<>();
 	}
+	
+	public String getBarcode() {
+		return barcode; 
+	}
+	
+	
+	public void setBarcode(String barcode) {
+		this.barcode = barcode; 
+	}
 
 
 	public String getTitle() {
@@ -28,6 +36,14 @@ public class LP {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	
+	public String getArtist() {
+		return artist; 
+	}
+	
+	public void setArtist(String artist) {
+		this.artist = artist;
 	}
 
 

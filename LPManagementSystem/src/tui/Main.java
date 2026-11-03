@@ -25,8 +25,8 @@ class Main {
 	            }
 	            else if(choice == 2) { 
 	                // TODO add code here
-	            	System.out.println();
-	                System.out.println(" Denne er endnu ikke implementeret");
+	            	LPMenu lpMenu = new LPMenu();
+	            	lpMenu.start();
 	            }
 	            else if(choice == 3) {
 	                LoanMenu loanMenu = new LoanMenu();
