@@ -8,6 +8,9 @@ public class Person {
 	private String name;
 	private String email;
     private String phone;
+    private String address;
+    private String postalCode;
+    private String city;
    
     private ArrayList<LP> lps;
     
@@ -16,6 +19,9 @@ public class Person {
 		this.name = name;
 		this.email = email;
 		this.phone = phone;
+		this.address = address;
+		this.postalCode = postalCode;
+		this.city = city;
 		lps = new ArrayList<>();
 	}
 
