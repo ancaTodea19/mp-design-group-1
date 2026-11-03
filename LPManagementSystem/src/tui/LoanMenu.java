@@ -25,6 +25,7 @@ public class LoanMenu {
             int choice = writeLoanMenu();
             if (choice == 1) {
             	findPerson();
+            	findLP();
             }
             if (choice == 2) {
                 createPerson();
@@ -51,10 +52,11 @@ public class LoanMenu {
 		System.out.println("Find den LP, som du gerne vil låne ud:");
 		
 		String lp = TextInput.inputString("LP Titel:");
-		String lpnr = TextInput.inputString("LP Nummer:");
+		int lpnr = TextInput.inputNumber("LP Nummer:");
 		
+		LP l = LPController.findLP(lp)
 		
-		displayLP(lp);
+		displayLP(l);
 	}
 	
 
@@ -88,7 +90,7 @@ public class LoanMenu {
 			System.out.println("    <No member to display>");
 		}
 	}
-	/* skal lige fikses
+	
 	private void displayLP(LP l) {
 		System.out.println("LP, som du låner ud:");
 		if (l!=null) { 
@@ -96,7 +98,7 @@ public class LoanMenu {
 			System.out.println("	Nummer: ");
 		}
 	}
-	*/
+	
     
 	private void displayCreate(Person p) {
 		System.out.println();
