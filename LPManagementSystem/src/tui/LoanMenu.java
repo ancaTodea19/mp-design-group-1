@@ -46,6 +46,16 @@ public class LoanMenu {
 		displayLoan(p);
 	}
 
+	private void findLP() {
+		System.out.println();
+		System.out.println("Find den LP, som du gerne vil låne ud:");
+		
+		String lp = TextInput.inputString("LP Titel:");
+		String lpnr = TextInput.inputString("LP Nummer:");
+		
+		
+		displayLP(lp);
+	}
 	
 
 

@@ -17,5 +17,22 @@ public class LPContainer {
 		return instance;
 	}
 	
+	public LP findLP (String lp, String lpnr) {
+		LP res = null;
+		boolean seac
+		for (int i =0; i < lps.size() && res == null; i++ ) {
+			if (lps.get(i).getTitle().equals(lp)) {
+				
+				for (int j=0; j < lps.get(i).getLpCopy().size(); j++ ) {
+					if() {
+						
+					}
+				}
+				
+			}
+			
+		}
+		
+	}
 	
 }

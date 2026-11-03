@@ -29,6 +29,16 @@ public class LP {
 	}
 
 
+	public HashMap<String, String> getLpCopy() {
+		return lpCopy;
+	}
+
+
+	public void setLpCopy(HashMap<String, String> lpCopy) {
+		this.lpCopy = lpCopy;
+	}
+
+
 	public String getTitle() {
 		return title;
 	}
