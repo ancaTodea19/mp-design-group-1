@@ -4,36 +4,40 @@ import java.util.HashMap;
 
 public class LP {
 
-	private String name;
-	private int number;
+	private String barcode; 
+	private String title;
+	private String artist; 
+	private int publicationDate;
 	
 	private HashMap<String, String> lpCopy;
 	
-	public LP(String name, int number) {
+	public LP(String barcode, String title, String artist, int publicationDate) {
 		super();
-		this.name = name;
-		this.number = number;
+		this.barcode = barcode;
+		this.title = title;
+		this.artist = artist; 
+		this.publicationDate = publicationDate;
 		lpCopy = new HashMap<>();
 	}
 
 
-	public String getName() {
-		return name;
+	public String getTitle() {
+		return title;
 	}
 
 
-	public void setName(String name) {
-		this.name = name;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 
-	public int getNumber() {
-		return number;
+	public int getPublicationDate() {
+		return publicationDate;
 	}
 
 
-	public void setNumber(int number) {
-		this.number = number;
+	public void setPublicationDate(int publicationDate) {
+		this.publicationDate = publicationDate;
 	}
 	
 	
