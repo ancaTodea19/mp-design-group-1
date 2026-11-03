@@ -1,6 +1,8 @@
 package tui;
 
+import controller.LPController;
 import controller.PersonController;
+import model.LP;
 import model.Person;
 
 public class LoanMenu {
@@ -35,7 +37,7 @@ public class LoanMenu {
     }
     
 
-	
+	// Opret lån
 	
 	private void findPerson() {
 		System.out.println("Søg efter personen, som skal låne");
@@ -43,7 +45,19 @@ public class LoanMenu {
 		Person p = personController.findByEmail(email);
 		displayLoan(p);
 	}
+	
+	private void findLP() {
+		System.out.println();
+		System.out.println("Find den LP, som du gerne vil låne ud:");
+		String lp = LPController.findLP(lp);
+		int lpnr = LPController.findlp(lpnr);
+		
+	}
 	 
+	
+	
+	
+	// Opret person
 	
 	private void createPerson() {
     	System.out.println();
@@ -58,6 +72,8 @@ public class LoanMenu {
     }
 	
 	
+	// Displays
+	
 	private void displayLoan(Person p) {
 		System.out.println("Person, som du opretter til:");
 		if (p != null) {
@@ -68,8 +84,17 @@ public class LoanMenu {
 			System.out.println("    <No member to display>");
 		}
 	}
+	
+	private void displayLP(LP l) {
+		System.out.println(LP, som du låner ud:);
+		if (l!=null) {
+			System.out.println("	Name: " + l.getName());
+			System.out.println("	Nummer: ");
+		}
+	}
     
 	private void displayCreate(Person p) {
+		System.out.println();
 		System.out.println("Person, som du har oprettet:");
 		if (p != null) {
 			System.out.println("    Name: " + p.getName());

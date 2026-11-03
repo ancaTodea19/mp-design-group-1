@@ -1,15 +1,19 @@
 package model;
 
+import java.util.HashMap;
+
 public class LP {
 
 	private String name;
 	private int number;
 	
+	private HashMap<String, String> lpCopy;
 	
 	public LP(String name, int number) {
 		super();
 		this.name = name;
 		this.number = number;
+		lpCopy = new HashMap<>();
 	}
 
 
