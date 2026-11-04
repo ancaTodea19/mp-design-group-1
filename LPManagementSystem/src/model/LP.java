@@ -7,10 +7,15 @@ public class LP {
 	private String barcode; 
 	private String title;
 	private String artist; 
+<<<<<<< Updated upstream
 	private int publicationDate;
 	private HashMap<Integer, LPcopy> lpCopy;
+=======
+	private String publicationDate;
+	private HashMap<Integer, String> lpCopy;
+>>>>>>> Stashed changes
 	
-	public LP(String barcode, String title, String artist, int publicationDate) {
+	public LP(String barcode, String title, String artist, String publicationDate) {
 		super();
 		this.barcode = barcode;
 		this.title = title;
@@ -57,12 +62,12 @@ public class LP {
 	}
 
 
-	public int getPublicationDate() {
+	public String getPublicationDate() {
 		return publicationDate;
 	}
 
 
-	public void setPublicationDate(int publicationDate) {
+	public void setPublicationDate(String publicationDate) {
 		this.publicationDate = publicationDate;
 	}
 	

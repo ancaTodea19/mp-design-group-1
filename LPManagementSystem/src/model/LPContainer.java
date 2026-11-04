@@ -8,7 +8,7 @@ public class LPContainer {
 	private ArrayList <LP> lps;
 	private int nextCopyNo = 1;
 
-	private static LPContainer getInstance() {
+	public static LPContainer getInstance() {
 		if (instance == null) {
 			instance = new LPContainer();
 		}
@@ -30,6 +30,7 @@ public class LPContainer {
 		}
 		return res;
 	}
+<<<<<<< Updated upstream
 	
 	public boolean addLP(LP l) {
 		boolean res = false;
@@ -56,4 +57,25 @@ public class LPContainer {
 	public void updateNextNo() {
 		nextCopyNo++;
 	}
+=======
+
+	public boolean addLP(LP lp) {
+		boolean res = false;
+		if(lp == null) {
+			res = true;
+			lps.add(lp);
+		}
+		return false;
+	}
+	
+	/*public boolean addPerson (Person p) {
+		boolean res = false;
+		if (findByEmail(p.getEmail())==null) {
+			res = true;
+			persons.add(p);
+		}
+		return res;
+	}*/
+
+>>>>>>> Stashed changes
 }

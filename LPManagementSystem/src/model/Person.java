@@ -14,7 +14,7 @@ public class Person {
    
     private ArrayList<LP> lps;
     
-	public Person(String name, String email, String phone) {
+	public Person(String name, String email, String phone,String address, String postalCode, String city) {
 		super();
 		this.name = name;
 		this.email = email;
@@ -57,6 +57,38 @@ public class Person {
 	
 	public void removeLP(LP lp) {
 		lps.remove(lp);
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getPostalCode() {
+		return postalCode;
+	}
+
+	public void setPostalCode(String postalCode) {
+		this.postalCode = postalCode;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public ArrayList<LP> getLps() {
+		return lps;
+	}
+
+	public void setLps(ArrayList<LP> lps) {
+		this.lps = lps;
 	}
 	
 }
