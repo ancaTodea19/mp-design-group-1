@@ -54,7 +54,7 @@ public class LoanMenu {
 		String lp = TextInput.inputString("LP Titel:");
 		int lpnr = TextInput.inputNumber("LP Nummer:");
 		
-		LP l = LPController.findLP(lp)
+		LP l = LPController.findLP(lp, lpnr);
 		
 		displayLP(l);
 	}
@@ -95,7 +95,7 @@ public class LoanMenu {
 		System.out.println("LP, som du låner ud:");
 		if (l!=null) { 
 			System.out.println("	Title: " + l.getTitle());
-			System.out.println("	Nummer: ");
+			System.out.println("	Nummer: " + l.getLpCopy().containsKey(lpnr));
 		}
 	}
 	
@@ -124,4 +124,6 @@ public class LoanMenu {
 
         return choice;
     }
+    
+    
 }

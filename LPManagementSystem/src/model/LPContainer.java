@@ -3,12 +3,10 @@ package model;
 import java.util.ArrayList;
 
 public class LPContainer {
+	
 	private static LPContainer instance;
-	private ArrayList<LP> lps;
-
-	private LPContainer() {
-		lps = new ArrayList<LP>();
-	}
+	private ArrayList <LP> lps;
+	private int nextCopyNo = 1;
 
 	private static LPContainer getInstance() {
 		if (instance == null) {
@@ -16,16 +14,43 @@ public class LPContainer {
 		}
 		return instance;
 	}
-
 	
-	public LP findLP (String lp, int lpnr) {
+	private LPContainer() {
+		lps = new ArrayList<LP>();
+	}
+	
+	
+	// Opret nye LP
+	public LP findLP (String titel) {
 		LP res = null;
-		for(int i = 0; i < lps.size() && res == null; i++) {
-			if (lps.get(i).getTitle().equals(lp)) {
+		for (int i =0; i < lps.size() && res == null; i++) {
+			if (lps.get(i).getTitle().equals(titel)) {
 				res = lps.get(i);
 			}
 		}
 		return res;
 	}
-
+	
+	public boolean addLP(LP l) {
+		boolean res = false;
+		if(findLP(l.getTitle())==null) {
+			res = true;
+			lps.add(l);
+		}
+		return res;
+	}
+	
+	
+	public LPcopy findLPcopy() {
+		int hashNo = getNextCopyNo();
+		for (int i = 0; )
+	}
+	
+	public int getNextCopyNo () {
+		return nextCopyNo;
+	}
+	
+	public void updateNextNo() {
+		nextCopyNo++;
+	}
 }

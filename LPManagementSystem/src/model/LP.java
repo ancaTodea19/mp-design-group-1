@@ -8,7 +8,7 @@ public class LP {
 	private String title;
 	private String artist; 
 	private int publicationDate;
-	private HashMap<Integer, String> lpCopy;
+	private HashMap<Integer, LPcopy> lpCopy;
 	
 	public LP(String barcode, String title, String artist, int publicationDate) {
 		super();
@@ -29,12 +29,12 @@ public class LP {
 	}
 
 
-	public HashMap<Integer, String> getLpCopy() {
+	public HashMap<Integer, LPcopy> getLpCopy() {
 		return lpCopy;
 	}
 
 
-	public void setLpCopy(HashMap<Integer, String> lpCopy) {
+	public void setLpCopy(HashMap<Integer, LPcopy> lpCopy) {
 		this.lpCopy = lpCopy;
 	}
 
