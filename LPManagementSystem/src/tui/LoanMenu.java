@@ -3,12 +3,14 @@ package tui;
 import controller.LPController;
 import controller.PersonController;
 import model.LP;
+import model.LPcopy;
 import model.Person;
 
 public class LoanMenu {
     // instance variables 
 
 	private PersonController personController;
+	private LPController lpController;
 	
 
     /**
@@ -16,6 +18,8 @@ public class LoanMenu {
      */
     public LoanMenu() {
     	personController = new PersonController();
+    	lpController = new LPController();
+    	
        
     }
     
@@ -50,7 +54,9 @@ public class LoanMenu {
 	private void findLP() {
 		System.out.println();
 		System.out.println("Indtast det nummer LP, som du skal udlåne:");
-		
+		int copyNo = TextInput.inputNumber("	Nummer:");
+		LPcopy l = LPController.findCopis(copyNo);
+		displayLP(l);
 	}
 	
 
@@ -89,7 +95,7 @@ public class LoanMenu {
 		System.out.println("LP, som du låner ud:");
 		if (l!=null) { 
 			System.out.println("	Title: " + l.getTitle());
-			System.out.println("	Nummer: " + l.getLpCopy().containsKey(lpnr));
+			System.out.println("	Nummer: " + );
 		}
 	}
 	

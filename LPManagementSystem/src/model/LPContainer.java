@@ -8,7 +8,7 @@ public class LPContainer {
 	private ArrayList <LP> lps;
 	private int nextCopyNo = 1;
 
-	private static LPContainer getInstance() {
+	public static LPContainer getInstance() {
 		if (instance == null) {
 			instance = new LPContainer();
 		}
