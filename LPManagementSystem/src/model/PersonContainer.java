@@ -32,7 +32,7 @@ public class PersonContainer {
 	
 	public boolean addPerson (Person p) {
 		boolean res = false;
-		if (findByEmail(p.getEmail())==null) {
+		if (findPerson(p.getPhone())==null) {
 			res = true;
 			persons.add(p);
 		}
