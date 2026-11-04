@@ -41,9 +41,12 @@ public class LPContainer {
 	}
 	
 	
-	public LPcopy findLPcopy() {
-		int hashNo = getNextCopyNo();
-		for (int i = 0; )
+	public LPcopy findLPcopy(int copyNo) {
+		LPcopy res = null; 
+		for (int i = 0; i < this.lps.size() && res == null; i++  ) {
+			res = lps.get(i).findLPCopy(copyNo);
+		}
+		return res; 
 	}
 	
 	public int getNextCopyNo () {

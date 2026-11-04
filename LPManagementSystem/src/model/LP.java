@@ -29,7 +29,7 @@ public class LP {
 	}
 
 
-	public HashMap<Integer, LPcopy> getLpCopy() {
+	public HashMap<Integer, LPcopy> getLpCopies() {
 		return lpCopy;
 	}
 
@@ -64,6 +64,10 @@ public class LP {
 
 	public void setPublicationDate(int publicationDate) {
 		this.publicationDate = publicationDate;
+	}
+	
+	public LPcopy findLPCopy(int no) {
+		return lpCopy.get(no);
 	}
 	
 	
