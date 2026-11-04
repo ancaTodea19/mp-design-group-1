@@ -17,11 +17,6 @@ public class PersonController {
 	}
 	
 	
-
-	public Person findByEmail(String emaill) {
-		Person p = PersonContainer.getInstance().findByEmail(emaill);
-		return p;
-	}
 	
 	public Person findPerson(String phoneNo) {
 		Person pers = PersonContainer.getInstance().findPerson(phoneNo);

@@ -16,16 +16,19 @@ public class PersonContainer {
 		}
 		return instance;
 	}
+		
+
 	
-	public Person findByEmail (String email) {
+	public Person findPerson(String phoneNo) {
 		Person res = null;
 		for(int i = 0; i < persons.size() && res == null; i++) {
-			if (persons.get(i).getEmail().equals(email)) {
+			if (persons.get(i).getPhone().equals(phoneNo)) {
 				res = persons.get(i);
 			}
 		}
 		return res;
 	}
+	
 	
 	public boolean addPerson (Person p) {
 		boolean res = false;

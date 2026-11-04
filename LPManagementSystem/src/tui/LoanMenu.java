@@ -42,25 +42,15 @@ public class LoanMenu {
 	
 	private void findPerson() {
 		System.out.println("Søg efter personen, som skal låne");
-		String phoneNo = TextInput.inputString("    PhoneNo");
+		String phoneNo = TextInput.inputString("    tlf nr:");
 		Person p = personController.findPerson(phoneNo);
 		displayLoan(p);
 	}
 
 	private void findLP() {
 		System.out.println();
-		System.out.println("Find den LP, som du gerne vil låne ud:");
+		System.out.println("Indtast det nummer LP, som du skal udlåne:");
 		
-		String lp = TextInput.inputString("LP Titel:");
-		int lpnr = TextInput.inputNumber("LP Nummer:");
-		
-<<<<<<< Updated upstream
-		LP l = LPController.findLP(lp, lpnr);
-=======
-		LP l = LPController.findLP(lp);
->>>>>>> Stashed changes
-		
-		displayLP(l);
 	}
 	
 
@@ -75,11 +65,7 @@ public class LoanMenu {
     	String name = TextInput.inputString("    Name");
 		String email = TextInput.inputString("    Email");
 		String phone = TextInput.inputString("    Phone no.");
-		String address =TextInput.inputString("   Address");
-		String postalCode =TextInput.inputString("   PostalCode");
-		String city =TextInput.inputString("   City");
-		
-		Person p = personController.createPerson(name, email, phone, address, postalCode, city);
+		Person p = personController.createPerson(name, email, phone);
 		displayCreate(p);
 		System.out.println();
 		start();
@@ -94,10 +80,6 @@ public class LoanMenu {
 			System.out.println("    Name: " + p.getName());
 			System.out.println("    Email: " + p.getEmail());
 			System.out.println("    Phone. no.: " + p.getPhone());
-			System.out.println("    Address: " + p.getAddress());
-			System.out.println("    PostalCode: " + p.getPostalCode());
-			System.out.println("    City: " + p.getCity());
-			
 		} else {
 			System.out.println("    <No member to display>");
 		}
@@ -119,9 +101,6 @@ public class LoanMenu {
 			System.out.println("    Name: " + p.getName());
 			System.out.println("    Email: " + p.getEmail());
 			System.out.println("    Phone. no.: " + p.getPhone());
-			System.out.println("    Address: " + p.getAddress());
-			System.out.println("    PostalCode: " + p.getPostalCode());
-			System.out.println("    City: " + p.getCity());
 		} else {
 			System.out.println("    <No member to display>");
 			start();
