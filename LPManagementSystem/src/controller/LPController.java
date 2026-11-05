@@ -30,6 +30,7 @@ public class LPController {
 	LPcopy copy =lp.createLPCopy(no, purchaseDate, purchasePrice);
 	container.updateNextNo();
 	return copy;
+	
 }
 
 	public static LPcopy findCopis (int copyNo) {
