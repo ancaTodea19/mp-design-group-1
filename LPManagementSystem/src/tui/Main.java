@@ -1,11 +1,9 @@
 
 package tui;
 
-import controller.PersonController;
+import TestData.TestData;
 
 class Main {
-	
-	private PersonController personController;
 	
 	public static void main (String[] args) {
 		
@@ -33,7 +31,9 @@ class Main {
 					loanMenu.start(); 
 	            }
 	            else if(choice == 4) {
-	                // TODO generate test data, this must not be part of final version
+	                TestData.createTestdataPerson();
+	                TestData.createTestdataLP();
+	                System.out.println("Test data generated.");
 	            }
 	            else {
 	                writeEnd();

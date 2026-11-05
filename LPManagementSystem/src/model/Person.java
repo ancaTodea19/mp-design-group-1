@@ -11,11 +11,9 @@ public class Person {
     private String address;
     private String postalCode;
     private String city;
-   
     private ArrayList<LP> lps;
     
 	public Person(String name, String email, String phone,String address, String postalCode, String city) {
-		super();
 		this.name = name;
 		this.email = email;
 		this.phone = phone;

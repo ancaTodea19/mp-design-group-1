@@ -8,6 +8,7 @@ public class PersonContainer {
 	
 	private PersonContainer() {
 		persons = new ArrayList<Person>();
+		
 	}
 	
 	public static PersonContainer getInstance() {
@@ -38,6 +39,7 @@ public class PersonContainer {
 		}
 		return res;
 	}
+	
 		
 
 }
