@@ -70,6 +70,11 @@ public class LP {
 		return lpCopy.get(no);
 	}
 	
+	public LPcopy createLPCopy(int no, String purchaseDate, double purchasePrice) {
+		LPcopy copy = new LPcopy(no, purchaseDate, purchasePrice);
+		lpCopy.put(no, copy);
+		return copy;
+	}
 	
 	
 	
