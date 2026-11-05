@@ -13,6 +13,7 @@ class Main {
 	}
 	
 	public void start() {
+		 TestData.createTestdataLP();
 		 boolean exit=false;
 	        while (!exit) { //! means while exit not is true (that is: false)
 	            int choice = writeMainMenu();
@@ -30,11 +31,6 @@ class Main {
 	                LoanMenu loanMenu = new LoanMenu();
 					loanMenu.start(); 
 	            }
-	            else if(choice == 4) {
-	                TestData.createTestdataPerson();
-	                TestData.createTestdataLP();
-	                System.out.println("Test data generated.");
-	            }
 	            else {
 	                writeEnd();
 	                exit = true;
@@ -47,7 +43,6 @@ class Main {
 	        menu.addOption("Lånermenu");
 	        menu.addOption("LP menu");
 	        menu.addOption("Udlånsmenu");
-	        menu.addOption("Generer test data");
 	        return menu.prompt();
 	    }
 	    
