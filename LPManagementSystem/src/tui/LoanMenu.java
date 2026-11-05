@@ -50,7 +50,7 @@ public class LoanMenu {
 		String phoneNo = TextInput.inputString("    tlf nr:");
 		Person p = personController.findPerson(phoneNo);
 		displayLoan(p);
-		p = savePerson;
+		savePerson = p;
 
 	}
 
@@ -60,7 +60,7 @@ public class LoanMenu {
 		int copyNo = TextInput.inputNumber("	Nummer:");
 		LPcopy l = LPController.findCopis(copyNo);
 		displayLP(l);
-		l = saveLP;
+		saveLP = l;
 
 	}
 
