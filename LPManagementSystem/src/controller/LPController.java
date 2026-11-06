@@ -1,85 +1,96 @@
 package controller;
- 
+
 import model.LP;
 import model.LPContainer;
 import model.LPcopy;
- 
- 
- 
- 
- 
- 
+
 public class LPController {
-	public static LP findLP(String title) {
-		return LPContainer.getInstance().findLP(title);
-	}
-	public static LPcopy registerLPCopy(LP lp, String purchaseDate, double purchasePrice) {
 
-	public static LP createLP(String barcode, String title, String artist, int publicationDate) {
-		if (title == null) {
-			return null;
-		}
+    public static LP findLP(String title) {
+        return LPContainer.getInstance().findLP(title);
+    }
 
-		LP lp = new LP(barcode, title, artist, publicationDate);
-		if (!LPContainer.getInstance().addLP(lp)) {
-			return null;
-		}
-		return lp;
-	}
+    public static LP createLP(String barcode,
+                              String title,
+                              String artist,
+                              int publicationDate) {
 
-	public static LP findLP(String title) {
-		return LPContainer.getInstance().findLP(title);
-	}
+        if (title == null) {
+            return null;
+        }
 
-	public static LPcopy createLPcopy(String barcode, String title, String artist, int publicationDate, String purchaseDate, double purchasePrice) {
-		if (title == null) {
-			return null;
-		}
+        LP lp = new LP(barcode, title, artist, publicationDate);
 
-		LPContainer container = LPContainer.getInstance();
-		LP lp = container.findLP(title);
-		if (lp == null) {
-			lp = createLP(barcode, title, artist, publicationDate);
-			if (lp == null) {
-				return null;
-			}
-		}
+        if (!LPContainer.getInstance().addLP(lp)) {
+            return null;
+        }
 
-		int copyNo = container.getNextCopyNo();
-		while (container.findLPcopy(copyNo) != null) {
-			container.updateNextNo();
-			copyNo = container.getNextCopyNo();
-		}
+        return lp;
+    }
 
-		LPcopy copy = new LPcopy(copyNo, purchaseDate, purchasePrice);
-		lp.getLpCopies().put(copyNo, copy);
-		container.updateNextNo();
-		return copy;
-	}
+    public static LPcopy createLPcopy(String barcode,
+                                      String title,
+                                      String artist,
+                                      int publicationDate,
+                                      String purchaseDate,
+                                      double purchasePrice) {
 
-	public static LPcopy registerLPCopy(LP lp, String purchaseDate, double purchasePrice) {
+        if (title == null) {
+            return null;
+        }
 
-	    if (lp == null ||
-	        purchaseDate == null ||
-	        purchaseDate.isBlank() ||
-	        purchasePrice < 0) {
-	        return null;
-	    }
+        LPContainer container = LPContainer.getInstance();
 
-	    LPContainer container = LPContainer.getInstance();
+        LP lp = container.findLP(title);
 
-	    int no = container.getNextCopyNo();
+        if (lp == null) {
+            lp = createLP(barcode, title, artist, publicationDate);
 
-	    LPcopy copy = lp.createLPCopy(no, purchaseDate, purchasePrice);
+            if (lp == null) {
+                return null;
+            }
+        }
 
-	    container.updateNextNo();
+        int copyNo = container.getNextCopyNo();
 
-	    return copy;
-	}
- 
-	public static LPcopy findCopis (int copyNo) {
+        while (container.findLPcopy(copyNo) != null) {
+            container.updateNextNo();
+            copyNo = container.getNextCopyNo();
+        }
+
+        LPcopy copy = new LPcopy(copyNo, purchaseDate, purchasePrice);
+
+        lp.getLpCopies().put(copyNo, copy);
+
+        container.updateNextNo();
+
+        return copy;
+    }
+
+    public static LPcopy registerLPCopy(LP lp,
+                                        String purchaseDate,
+                                        double purchasePrice) {
+
+        if (lp == null ||
+            purchaseDate == null ||
+            purchaseDate.isBlank() ||
+            purchasePrice < 0) {
+            return null;
+        }
+
+        LPContainer container = LPContainer.getInstance();
+
+        int no = container.getNextCopyNo();
+
+        LPcopy copy = lp.createLPCopy(no, purchaseDate, purchasePrice);
+
+        container.updateNextNo();
+
+        return copy;
+    }
+
+    public static LPcopy findCopis (int copyNo) {
 		LPcopy copy = LPContainer.getInstance().findLPcopy(copyNo);
 		return copy;
 	}
-	
 }
