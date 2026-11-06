@@ -35,6 +35,11 @@ public class LoanMenu {
 			if (choice == 1) {
 				findPerson();
 				findLP();
+				if (savePerson != null && saveLP != null) {
+					createLoan();
+				} else {
+					System.out.println("Lånet blev ikke oprettet. Vælg en person og en LP først.");
+				}
 			} else if (choice == 2) {
 				createPerson();
 			} else {
@@ -56,22 +61,31 @@ public class LoanMenu {
 
 	private void findLP() {
 		System.out.println();
-		System.out.println("Indtast det nummer LP, som du skal udlåne:");
-		int copyNo = TextInput.inputNumber("	Nummer:");
-		LPcopy l = LPController.findCopis(copyNo);
-		displayLP(l);
-		saveLP = l;
+		System.out.println("Indtast nummeret på den LP-kopi, som du skal udlåne:");
+		int copyNo = TextInput.inputNumber("Nummer");
+		saveLP = LPController.findCopis(copyNo);
+		if (saveLP == null) {
+			System.out.println("Ingen LP-kopi fundet med nummer " + copyNo + ".");
+			return;
+		}
+
+		displayLP(saveLP);
 
 	}
 
 	private void createLoan() {
 		System.out.println();
 		System.out.println("indtast de sidste detaljer:");
-		int loanNumber = TextInput.inputNumber("    Loan number");
-		String borrowDate = TextInput.inputString("    Borrow date");
-		String returnDate = TextInput.inputString("    Return date");
+		int loanNumber = TextInput.inputNumber("    Lånenummer");
+		String borrowDate = TextInput.inputString("    Udlånsdato");
+		String returnDate = TextInput.inputString("    Afleveringsdato");
 		String status = "Udlånt";
 		Loan l = LendController.createLoan(loanNumber, borrowDate, returnDate, status, savePerson, saveLP);
+		if (l != null) {
+			System.out.println("Lånet er oprettet med LP kopi nr. " + l.getLpCopy().getNo() + ".");
+		} else {
+			System.out.println("Lånet kunne ikke oprettes. Kontroller, at lånenummeret ikke allerede er brugt.");
+		}
 	}
 
 	// Opret person
@@ -79,12 +93,12 @@ public class LoanMenu {
 	private void createPerson() {
 		System.out.println();
 		System.out.println("Opret ny person i systemet");
-		String name = TextInput.inputString("    Name");
-		String email = TextInput.inputString("    Email");
-		String phone = TextInput.inputString("    Phone no.");
-		String address = TextInput.inputString("    Address");
-		String postalCode = TextInput.inputString("    Postal code");
-		String city = TextInput.inputString("    City");
+		String name = TextInput.inputString("    Navn");
+		String email = TextInput.inputString("    E-mail");
+		String phone = TextInput.inputString("    Telefon nr.");
+		String address = TextInput.inputString("    Adresse");
+		String postalCode = TextInput.inputString("    Postnummer");
+		String city = TextInput.inputString("    By");
 		Person p = personController.createPerson(name, email, phone, address, postalCode, city);
 		displayCreate(p);
 		System.out.println();
@@ -96,11 +110,11 @@ public class LoanMenu {
 	private void displayLoan(Person p) {
 		System.out.println("Person, som du opretter til:");
 		if (p != null) {
-			System.out.println("    Name: " + p.getName());
-			System.out.println("    Email: " + p.getEmail());
-			System.out.println("    Phone. no.: " + p.getPhone());
+			System.out.println("    Navn: " + p.getName());
+			System.out.println("    E-mail: " + p.getEmail());
+			System.out.println("    Telefon nr.: " + p.getPhone());
 		} else {
-			System.out.println("    <No member to display>");
+			System.out.println("    <Ingen person at vise>");
 		}
 	}
 
@@ -116,14 +130,14 @@ public class LoanMenu {
 		System.out.println();
 		System.out.println("Person, som du har oprettet:");
 		if (p != null) {
-			System.out.println("    Name: " + p.getName());
-			System.out.println("    Email: " + p.getEmail());
-			System.out.println("    Phone no.: " + p.getPhone());
-			System.out.println("    Address: " + p.getAddress());
-			System.out.println("    Postal code: " + p.getPostalCode());
-			System.out.println("    City: " + p.getCity());
+			System.out.println("    Navn: " + p.getName());
+			System.out.println("    E-mail: " + p.getEmail());
+			System.out.println("    Telefon nr.: " + p.getPhone());
+			System.out.println("    Adresse: " + p.getAddress());
+			System.out.println("    Postnummer: " + p.getPostalCode());
+			System.out.println("    By: " + p.getCity());
 		} else {
-			System.out.println("    <No member to display>");
+			System.out.println("    <Ingen person at vise>");
 			start();
 		}
 	}

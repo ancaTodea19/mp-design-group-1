@@ -13,9 +13,9 @@ public class Loan {
 		this.loanNumber = loanNumber;
 		this.borrowDate = borrowDate;
 		this.returnDate = returnDate;
+		this.status = status;
 		this.person = person;
 		this.lpCopy = lpCopy;
-		status = "Status";
 	}
 
 	public int getLoanNumber() {
@@ -47,7 +47,11 @@ public class Loan {
 	}
 
 	public void setStatus(String status) {
-		status = "Status";
+		this.status = status;
+	}
+
+	public LPcopy getLpCopy() {
+		return lpCopy;
 	}
 
 }
