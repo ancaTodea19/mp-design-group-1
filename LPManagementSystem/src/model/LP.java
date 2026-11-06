@@ -69,6 +69,11 @@ public class LP {
 	public LPcopy findLPCopy(int no) {
 		return lpCopy.get(no);
 	}
+
+	public void addCopy(LPcopy copy) {
+		lpCopy.put(copy.getNo(), copy);
+		
+	}
 	
 	
 	

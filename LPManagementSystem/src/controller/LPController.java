@@ -43,7 +43,7 @@ public class LPController {
 		}
 
 		LPcopy copy = new LPcopy(copyNo, purchaseDate, purchasePrice);
-		lp.getLpCopies().put(copyNo, copy);
+		lp.addCopy(copy);
 		container.updateNextNo();
 		return copy;
 	}
