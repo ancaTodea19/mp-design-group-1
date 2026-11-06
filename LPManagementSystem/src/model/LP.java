@@ -1,12 +1,12 @@
 package model;
- 
+
 import java.util.HashMap;
- 
+
 public class LP {
- 
-	private String barcode;
+
+	private String barcode; 
 	private String title;
-	private String artist;
+	private String artist; 
 	private int publicationDate;
 	private HashMap<Integer, LPcopy> lpCopy;
 	
@@ -14,54 +14,54 @@ public class LP {
 		super();
 		this.barcode = barcode;
 		this.title = title;
-		this.artist = artist;
+		this.artist = artist; 
 		this.publicationDate = publicationDate;
 		lpCopy = new HashMap<>();
 	}
 	
 	public String getBarcode() {
-		return barcode;
+		return barcode; 
 	}
 	
 	
 	public void setBarcode(String barcode) {
-		this.barcode = barcode;
+		this.barcode = barcode; 
 	}
- 
- 
+
+
 	public HashMap<Integer, LPcopy> getLpCopies() {
 		return lpCopy;
 	}
- 
- 
+
+
 	public void setLpCopy(HashMap<Integer, LPcopy> lpCopy) {
 		this.lpCopy = lpCopy;
 	}
- 
- 
+
+
 	public String getTitle() {
 		return title;
 	}
- 
- 
+
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
 	
 	public String getArtist() {
-		return artist;
+		return artist; 
 	}
 	
 	public void setArtist(String artist) {
 		this.artist = artist;
 	}
- 
- 
+
+
 	public int getPublicationDate() {
 		return publicationDate;
 	}
- 
- 
+
+
 	public void setPublicationDate(int publicationDate) {
 		this.publicationDate = publicationDate;
 	}
@@ -70,11 +70,6 @@ public class LP {
 		return lpCopy.get(no);
 	}
 	
-	public LPcopy createLPCopy(int no, String purchaseDate, double purchasePrice) {
-		LPcopy copy = new LPcopy(no, purchaseDate, purchasePrice);
-		lpCopy.put(no, copy);
-		return copy;
-	}
 	
 	
 	

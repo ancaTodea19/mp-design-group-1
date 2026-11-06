@@ -6,91 +6,51 @@ import model.LPcopy;
 
 public class LPController {
 
-    public static LP findLP(String title) {
-        return LPContainer.getInstance().findLP(title);
-    }
+	public static LP createLP(String barcode, String title, String artist, int publicationDate) {
+		if (title == null) {
+			return null;
+		}
 
-    public static LP createLP(String barcode,
-                              String title,
-                              String artist,
-                              int publicationDate) {
+		LP lp = new LP(barcode, title, artist, publicationDate);
+		if (!LPContainer.getInstance().addLP(lp)) {
+			return null;
+		}
+		return lp;
+	}
 
-        if (title == null) {
-            return null;
-        }
+	public static LP findLP(String title) {
+		return LPContainer.getInstance().findLP(title);
+	}
 
-        LP lp = new LP(barcode, title, artist, publicationDate);
+	public static LPcopy createLPcopy(String barcode, String title, String artist, int publicationDate, String purchaseDate, double purchasePrice) {
+		if (title == null) {
+			return null;
+		}
 
-        if (!LPContainer.getInstance().addLP(lp)) {
-            return null;
-        }
+		LPContainer container = LPContainer.getInstance();
+		LP lp = container.findLP(title);
+		if (lp == null) {
+			lp = createLP(barcode, title, artist, publicationDate);
+			if (lp == null) {
+				return null;
+			}
+		}
 
-        return lp;
-    }
+		int copyNo = container.getNextCopyNo();
+		while (container.findLPcopy(copyNo) != null) {
+			container.updateNextNo();
+			copyNo = container.getNextCopyNo();
+		}
 
-    public static LPcopy createLPcopy(String barcode,
-                                      String title,
-                                      String artist,
-                                      int publicationDate,
-                                      String purchaseDate,
-                                      double purchasePrice) {
+		LPcopy copy = new LPcopy(copyNo, purchaseDate, purchasePrice);
+		lp.getLpCopies().put(copyNo, copy);
+		container.updateNextNo();
+		return copy;
+	}
 
-        if (title == null) {
-            return null;
-        }
-
-        LPContainer container = LPContainer.getInstance();
-
-        LP lp = container.findLP(title);
-
-        if (lp == null) {
-            lp = createLP(barcode, title, artist, publicationDate);
-
-            if (lp == null) {
-                return null;
-            }
-        }
-
-        int copyNo = container.getNextCopyNo();
-
-        while (container.findLPcopy(copyNo) != null) {
-            container.updateNextNo();
-            copyNo = container.getNextCopyNo();
-        }
-
-        LPcopy copy = new LPcopy(copyNo, purchaseDate, purchasePrice);
-
-        lp.getLpCopies().put(copyNo, copy);
-
-        container.updateNextNo();
-
-        return copy;
-    }
-
-    public static LPcopy registerLPCopy(LP lp,
-                                        String purchaseDate,
-                                        double purchasePrice) {
-
-        if (lp == null ||
-            purchaseDate == null ||
-            purchaseDate.isBlank() ||
-            purchasePrice < 0) {
-            return null;
-        }
-
-        LPContainer container = LPContainer.getInstance();
-
-        int no = container.getNextCopyNo();
-
-        LPcopy copy = lp.createLPCopy(no, purchaseDate, purchasePrice);
-
-        container.updateNextNo();
-
-        return copy;
-    }
-
-    public static LPcopy findCopis (int copyNo) {
+	public static LPcopy findCopis (int copyNo) {
 		LPcopy copy = LPContainer.getInstance().findLPcopy(copyNo);
 		return copy;
 	}
+	
 }
