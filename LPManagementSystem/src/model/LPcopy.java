@@ -11,7 +11,6 @@ public class LPcopy {
 		this.no = no;
 		this.purchaseDate = purchaseDate;
 		this.purchasePrice = purchasePrice;
-		this.status = true;
 	}
 
 	public int getNo() {
